@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import arrow_icon from '../../assets/arrow_icon.png'
-import { CoinContext } from '../../context/CooinContext'
+import { CoinContext } from '../../context/CoinContext'
 
 const Navbar = () => {
 
@@ -23,7 +23,7 @@ const Navbar = () => {
         break;
       }
       default: {
-        setCurrency({name:'inr', Symbol:"₹"});
+        setCurrency({name:'usd', Symbol:"$"});
         break;
       }
       
@@ -39,7 +39,7 @@ const Navbar = () => {
         <li>Blog</li>
       </ul>
       <div className='nav-right'>
-        <select onChange={currencyHandleru}>
+        <select onChange={currencyHandler}>
             <option value="usd">USD</option>
             <option value="eur">EUR</option>
             <option value="inr">INR</option>
