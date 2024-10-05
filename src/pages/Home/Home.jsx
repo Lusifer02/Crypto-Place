@@ -28,7 +28,7 @@ const Home = () => {
 
   // useEffect(() => {
   //   // Fetch your data and update displayCoin
-  //   fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=Usd')
+  //   fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`)
   //     .then(response => response.json())
   //     .then(data => {
   //       setDisplayCoin(data); // Assuming your API returns an array
@@ -51,18 +51,18 @@ const Home = () => {
 
         {/*Search suggestion function aternate code */}
 
-        {/* {allCoin && allCoin.length > 0 && (
+        {allCoin && allCoin.length > 0 && (
      <datalist id="coinlist">
        {allCoin.map((item, index) => (
          <option key={index} value={item.name}></option>
         ))}
           </datalist>
-        )} */}
+        )}
 
 
-        <datalist id="coinlist">
+        {/* <datalist id="coinlist">
           {allCoin.map((item, index)=>(<option key={index} value={item.name}></option>))}
-        </datalist>
+        </datalist> */}
 
       </form>  
     </div>
@@ -75,7 +75,34 @@ const Home = () => {
         <p className='market-cap'>Market Cap</p>
       </div>
       
-      {displayCoin.slice(0,10).map((item, index)=>(
+      
+      {displayCoin && Array.isArray(displayCoin) && displayCoin.length > 0 ? (
+  displayCoin.slice(0,10).map((item, index)=>(
+    <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
+            <p>{item.market_cap_rank}</p>
+            <div>
+              <img src={item.image} alt="" />
+              <p>{item.name + " - " + item.symbol}</p>
+            </div>
+            <p>
+            {currency.symbol} {item.current_price.toLocaleString()}
+            </p>
+            <p className={item.price_change_percentage_24h>0?"green":"red"}>
+            {Math.floor(item.price_change_percentage_24h*100)/100}
+            </p>
+            <p className="market-cap">
+            {currency.symbol} {item.market_cap.toLocaleString()}
+            </p>
+          </Link>
+  ))
+) : (
+  // Handle the case where displayCoin is not an array or is empty
+  <p>No coins to display</p> 
+)}
+
+
+      {/* {
+        displayCoin.slice(0,10).map((item, index)=>(
           <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
             <p>{item.market_cap_rank}</p>
             <div>
@@ -92,7 +119,11 @@ const Home = () => {
             {currency.symbol} {item.market_cap.toLocaleString()}
             </p>
           </Link>
-        ))}
+        ))
+      } */}
+
+
+      
     </div>
     </div>
   )

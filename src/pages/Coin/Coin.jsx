@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { CoinContext } from '../../context/CoinContext';
 import LineChart from '../../components/LineChart/LineChart';
 
+
 const Coin = () => {
 
   const {coinId} = useParams();
@@ -23,6 +24,7 @@ const Coin = () => {
       .then(response => setCoinData(response))
       .catch(err => console.error(err));
   }
+
 
   const fetchHistoricalData= async ()=>{
     const options = {
