@@ -46,9 +46,9 @@
     border: none;
     cursor: pointer;
 }
-.navbar button img{
+/* .navbar button img{
     width: 13px;
-}
+} */
 
 @media  (max-width: 900px){
     .navbar{
@@ -66,8 +66,5 @@
     }
     .navbar ul{
         display: none;
-    }
-    .navbar button img{
-        width: 12px;
     }
 }
