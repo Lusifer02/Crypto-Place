@@ -45,7 +45,12 @@
     padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
+.hero button:hover {
+    background-color: #530fbe;
+    color: white;
+  }
 .crypto-table{
     max-width: 800px;
     margin: auto;

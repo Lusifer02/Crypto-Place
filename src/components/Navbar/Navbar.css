@@ -28,10 +28,18 @@
     border: 2px solid white;
     background: transparent;
     color: white;
+    cursor: pointer;
+    transition-duration: 0.3s;
 }
+.navbar select:hover{
+    background-color: #ffffff;
+    color: rgb(25, 25, 25);
+}
+
 .navbar option{
-    background-color: #09005c;
-    color: white;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: rgb(26, 26, 26);
 }
 .navbar button{
     display: flex;
@@ -41,14 +49,16 @@
     border-radius: 20px;
     font-size: 15px;
     font-weight: 500;
-    color: #393939;
+    color: rgb(26, 26, 26);
     background: white;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
 }
-/* .navbar button img{
-    width: 13px;
-} */
+.navbar button:hover{
+    background-color: #530fbe;
+    color: white;
+}
 
 @media  (max-width: 900px){
     .navbar{
